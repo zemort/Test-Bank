@@ -81,7 +81,9 @@ class UserSteps(BaseSteps):
         ).post(transfer_request)
         return response
 
-    def credit_user_valid(self, credit_user_request: CreditUserRequest, user_request: CreateUserRequest):
+    def credit_user_valid(self,
+                          credit_user_request: CreditUserRequest,
+                          user_request: CreateUserRequest):
         response = ValidateCrudRequester(
             RequestSpecs.auth_headers(
                 username=user_request.username,

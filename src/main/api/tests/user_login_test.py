@@ -1,11 +1,12 @@
 import pytest
 
+from src.main.api.models.create_user_request import CreateUserRequest
 from src.main.api.models.login_user_request import LoginUserRequest
 
 
 @pytest.mark.api
 class TestUserLogin:
-    def test_login_admin(self, api_manager):
+    def test_login_admin(self, api_manager, create_user_request: CreateUserRequest):
         login_user_request = LoginUserRequest(username="admin", password="123456")
 
         response = api_manager.admin_steps.login_user(login_user_request)
@@ -26,4 +27,4 @@ class TestUserLogin:
 
     def test_login_invalid(self, api_manager, create_user_request):
         create_user_request.username = "test"
-        response = api_manager.admin_steps.login_user_invalid(create_user_request)
+        api_manager.admin_steps.login_user_invalid(create_user_request)
