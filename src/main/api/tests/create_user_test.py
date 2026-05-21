@@ -17,6 +17,7 @@ class TestCreateUser:
                                api_manager: ApiManager,
                                create_user_request: CreateUserRequest,
                                db_session: Session):
+
         response = api_manager.admin_steps.create_user(create_user_request)
 
         assert create_user_request.username == response.username

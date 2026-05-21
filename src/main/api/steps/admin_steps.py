@@ -17,7 +17,7 @@ class AdminSteps(BaseSteps):
                 username="admin",
                 password="123456"
             ),
-            Endpoint.ADMIN_CREATE_USER ,
+            Endpoint.ADMIN_CREATE_USER,
             ResponseSpecs.request_ok()
         ).post(create_user_request)
 
